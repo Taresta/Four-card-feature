@@ -28,6 +28,8 @@
 /* Layout */
 body {
     display: grid;
+    gap:1.5rem;
+    padding:1rem;
     font-family: var(--primary-font-family);
     font-weight: var(--secondary-font-weight);
     font-size: var(--primary-font-size);
@@ -35,7 +37,7 @@ body {
 }
 .card-container  {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap:1rem; 
     padding:clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
@@ -65,9 +67,11 @@ h1 span {
    
 }
 .card svg {
+    width: clamp(2rem, 30%, 4rem);
+    height: auto;
     position: absolute;
-    bottom: 1.5rem;
-    right:1.5rem;
+    bottom: 1rem;
+    right:1rem;
 }
 
 .supervisor {
@@ -83,9 +87,6 @@ h1 span {
     border-top: 0.5rem solid var(--blue);
 }
 
-@media(min-width:768px) {
-   
-}
 @media(min-width:1023px) {
     .card-container {
         grid-template-areas: "supervisor team-builder calculator"
@@ -106,3 +107,5 @@ h1 span {
         
     }
 }
+
+/* Styling with Flexbox */
