@@ -1,111 +1,126 @@
 :root {
     /* Primary Colors */
-    --red:hsl(0, 78%, 62%);
-    --cyan:hsl(180, 62%, 55%);
-    --orange:hsl(34, 97%, 64%);
-    --blue:hsl(212, 86%, 64%);
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
 
-     /* Neutral */
+    /* Neutral */
     --very-dark-blue: hsl(234, 12%, 34%);
     --grayish-blue: hsl(229, 6%, 66%);
     --very-light-gray: hsl(0, 0%, 98%);
 
     /* Typography */
-     --primary-font-size: 15px;
-     --primary-font-family: "Poppins", sans-serif;
+    --primary-font-size: 15px;
+    --primary-font-family: "Poppins", sans-serif;
 
-     /* Font weights */
-     --primary-font-weight:200;
-     --secondary-font-weight:400;
-     --tertiary-font-weight:600;
+    /* Font Weights */
+    --primary-font-weight: 200;
+    --secondary-font-weight: 400;
+    --tertiary-font-weight: 600;
 }
-*{
+
+/* Global Styles */
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
 }
 
-/* Layout */
 body {
     display: grid;
-    gap:1.5rem;
-    padding:1rem;
+    gap: 1.5rem;
+    padding: 1rem;
     font-family: var(--primary-font-family);
     font-weight: var(--secondary-font-weight);
     font-size: var(--primary-font-size);
-    color:var(--grayish-blue);
+    color: var(--grayish-blue);
 }
-.card-container  {
+
+/* Layout */
+.card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap:1rem; 
-    padding:clamp(0.5rem, 0.5rem + 1vw, 1rem);
+    gap: 1rem;
+    padding: clamp(0.5rem, 0.5rem + 1vw, 1rem);
 }
 
-
-/* Alignment and Styling */
-
+/* Header */
 header {
-    place-self:center;
+    place-self: center;
     text-align: center;
     max-width: max(20rem, 50%);
 }
+
 h1 {
+    font-size: clamp(1.5rem, 1.5rem + 1vw, 2rem);
     color: var(--very-dark-blue);
-    font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
 }
+
 h1 span {
     font-weight: var(--primary-font-weight);
 }
-.card { 
-    min-height:18rem;
-    position:relative;
-    padding:1.5rem;
+
+/* Card Styling */
+.card {
+    min-height: 18rem;
+    position: relative;
+    padding: 1.5rem;
     border-radius: 0.5rem;
     background-color: var(--very-light-gray);
     box-shadow: -0.0625rem 0.3125rem 1.25rem var(--grayish-blue);
-   
+    border-top: 0.5rem solid; /* Generic border, colors specified below */
+}
+.card h2 {
+    font-size: clamp(1rem, 1rem + 1vw, 1.5rem);
+    color: var(--very-dark-blue);
 }
 .card svg {
     width: clamp(2rem, 30%, 4rem);
     height: auto;
     position: absolute;
     bottom: 1rem;
-    right:1rem;
+    right: 1rem;
 }
 
+/* Card Type Colors */
 .supervisor {
-    border-top: 0.5rem solid var(--cyan);
-}
-.team-builder {
-    border-top: 0.5rem solid var(--red);
-}
-.karma {
-    border-top: 0.5rem solid var(--orange);
-}
-.calculator {
-    border-top: 0.5rem solid var(--blue);
+    border-color: var(--cyan);
 }
 
-@media(min-width:1023px) {
+.team-builder {
+    border-color: var(--red);
+}
+
+.karma {
+    border-color: var(--orange);
+}
+
+.calculator {
+    border-color: var(--blue);
+}
+
+/* Attribution */
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Media Queries */
+@media (min-width: 1023px) {
     .card-container {
-        grid-template-areas: "supervisor team-builder calculator"
-                            "supervisor karma calculator";
+        grid-template-areas: 
+            "supervisor team-builder calculator"
+            "supervisor karma calculator";
         align-items: center;
     }
-    .supervisor {
-        grid-area: supervisor;
-    }
-    .team-builder {
-        grid-area:team-builder;
-    }
-    .karma {
-        grid-area:karma;
-    }
-    .calculator {
-        grid-area:calculator;
-        
-    }
-}
 
-/* Styling with Flexbox */
+    .supervisor { grid-area: supervisor; }
+    .team-builder { grid-area: team-builder; }
+    .karma { grid-area: karma; }
+    .calculator { grid-area: calculator; }
+}
